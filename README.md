@@ -34,7 +34,7 @@ Bonus points for SCM with github/gitlab/bitbucket + continuous integration and d
 - [x] Don't load the movie data until the character is clicked
 - [x] Don't show any movie information until all of the character's movies have loaded
 - [x] Handle HTTP errors
-- [ ] Make it pretty! You're encouraged to use bootstrap or another css framework
+- [x] Make it pretty! You're encouraged to use bootstrap or another css framework
 
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
