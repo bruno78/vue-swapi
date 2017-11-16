@@ -1,7 +1,9 @@
 <template>
-  <div id="app">
-    <div v-for="(character, i) in characters" :key="i">
-      <character-info :character="character" />
+  <div id="app" class="container">
+    <div class="row">
+      <div class="col s12" v-for="(character, i) in characters" :key="i">
+        <character-info :character="character" />
+      </div>
     </div>
   </div>
 </template>

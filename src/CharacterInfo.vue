@@ -1,24 +1,29 @@
 <template>
-  <div>
-    <h3>{{character.name}}</h3>
+  <div class="container">
+    <div class="row">
+        <div class="col s12">
+            <h3>{{character.name}}</h3>
     
-    <button @click="getMoviesLinks(character.url)">{{ isActive ? 'hide' : 'show' }}</button>
-    
-    <div v-if="isActive">
-        <ul v-if= "movies && movies.length">
-            <li v-for="(movie, i) in movies" :key="i">
-                <h5>{{ movie.data.title }}</h5>
-                <p> release date: {{ movie.data.release_date | 
-                                     moment("dddd, MMMM D YYYY") }}</p>
-            </li>
-        </ul>
+            <button class="waves-effect waves-light btn" @click="getMoviesLinks(character.url)">{{ isActive ? 'hide' : 'show movies' }}</button>
+            
+            <div v-if="isActive">
+                <ul v-if= "movies && movies.length">
+                    <li v-for="(movie, i) in movies" :key="i">
+                        <h4>{{ movie.data.title }}</h4>
+                        <p> Release date: {{ movie.data.release_date | 
+                                            moment("dddd, MMMM D YYYY") }}</p>
+                    </li>
+                </ul>
 
-        <ul v-if="errors && errors.length">
-            <li v-for="(error, i) of errors" :key="i">
-                {{ error.message }}
-            </li>
-        </ul>
+                <ul v-if="errors && errors.length">
+                    <li v-for="(error, i) of errors" :key="i">
+                    <p>{{ error.message }}</p> 
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
+    
   </div>     
 </template>
 
