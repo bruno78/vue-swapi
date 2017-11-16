@@ -17,7 +17,7 @@ npm run build
 
 ### Intro
 
-Use the Star Wars API to generate a list of the films that a particular character appears in.
+Use the [Star Wars API](https://swapi.co/) to generate a list of the films that a particular character appears in.
 
 ### Requirements
 
