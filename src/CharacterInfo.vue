@@ -82,7 +82,7 @@ export default {
           axios.all(links.map(link => axios.get(link)))
             .then(axios.spread((...res) => {
                 this.movies = res
-                this.loading = false;
+                this.loading = false
             }))
             .catch(e => {
                     console.log(e)
