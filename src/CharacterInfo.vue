@@ -23,7 +23,6 @@
 </template>
 
 <script>
-import MoviesList from './MoviesList'
 import axios from 'axios'
 
 export default {
@@ -68,9 +67,6 @@ export default {
                     console.log(e)
                 })
       }
-  },
-  components: {
-    'movies-list': MoviesList
   }
 }
 </script>
