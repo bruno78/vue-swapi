@@ -1,13 +1,16 @@
 {
-  "name": "adp-starwars",
-  "description": "A Vue.js project",
+  "name": "adp-swapi",
+  "description": "A Vue.js project using Star Wars API",
   "version": "1.0.0",
   "author": "bruno78 <devbruno78@gmail.com>",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+    //"dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
+    //"build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+    "postinstall": "npm run build",
+    "start": "node server.js"
+
   },
   "dependencies": {
     "axios": "^0.17.1",
