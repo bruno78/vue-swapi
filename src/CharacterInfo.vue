@@ -4,9 +4,17 @@
         <div class="col s12">
             <h3>{{character.name}}</h3>
     
-            <button class="waves-effect waves-light btn" @click="getMoviesLinks(character.url)">{{ isActive ? 'hide' : 'show movies' }}</button>
+            <button class="waves-effect waves-light btn" 
+                    @click="getMoviesLinks(character.url)"
+                    @mouseover="hover(true)"
+                    @mouseleave="hover(false)"
+                    :class="{red: isActive, pulse: isHovering}"
+                    >{{ isActive ? 'hide' : 'show movies' }}</button>
             
             <div v-if="isActive">
+                <div v-if="loading">
+                    <h5>Loading movies...</h5>
+                </div>
                 <ul v-if= "movies && movies.length">
                     <li v-for="(movie, i) in movies" :key="i">
                         <h4>{{ movie.data.title }}</h4>
@@ -36,12 +44,17 @@ export default {
   data() {
       return {
           isActive: false,
+          loading: true,
+          isHovering: false,
           movies:[],
           movieLinks: [],
           errors:[]
       }
   },
   methods: {
+      hover(hovering) {
+          this.isHovering = hovering;
+      },
       getMoviesLinks(url) {
           this.isActive = !this.isActive
           
@@ -55,9 +68,11 @@ export default {
                     this.errors = []
                     if(e.response.status === 404) {
                         this.errors.push({message: "Oops, 404 - we couldn't find our spaceship!"})
+                        this.loading = false
                     }
                     else {
                         this.errors.push(e)
+                        this.loading = false
                     }
                     
                 })
@@ -67,6 +82,7 @@ export default {
           axios.all(links.map(link => axios.get(link)))
             .then(axios.spread((...res) => {
                 this.movies = res
+                this.loading = false;
             }))
             .catch(e => {
                     console.log(e)
@@ -75,3 +91,5 @@ export default {
   }
 }
 </script>
+
+
