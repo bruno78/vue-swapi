@@ -81,7 +81,11 @@ export default {
       getMovies(links) {
           axios.all(links.map(link => axios.get(link)))
             .then(axios.spread((...res) => {
-                this.movies = res
+                this.movies = res.sort((a, b) => {
+                    let dateA = new Date(a.data.release_date)
+                    let dateB = new Date(b.data.release_date)
+                    return dateB-dateA
+                })
                 this.loading = false
             }))
             .catch(e => {
