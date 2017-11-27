@@ -9,7 +9,7 @@
 
 <script>
   import characterJSON from './assets/characters.json'
-  import CharactersList from './CharactersList.vue'
+  import CharactersList from './components/CharactersList.vue'
 
   export default {
     name: 'MainApp',
